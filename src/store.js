@@ -18,11 +18,11 @@ const defaultUser = "rtI34B6L0Gdgs31EElbAsCvBJ582";
 var WatchmanList = [
     {
         id: "breafing",
-        context: "What's Today?",
+        context: "What's on Today?",
         actions: [
             'On Journey',
             'On Fasting',
-            'Target Archieved',
+            'Day Target Happily Archieved',
         ],
     },
     {
@@ -36,7 +36,7 @@ var WatchmanList = [
             'Jogging',
             'Mandi',
             'Dhuha',
-            'Sarapan',
+            'Breakfast',
             'Bikin Kopi'
         ],
         limits: [
@@ -88,6 +88,7 @@ var WatchmanList = [
         actions: [
             'Ashar',
             'Mandi',
+            'Bersih-bersih',
         ],
         limits: [
         ]
@@ -98,6 +99,7 @@ var WatchmanList = [
         actions: [
             'Magrib',
             'Tadarus',
+            'Dinner',
             'Isyak',
         ],
         limits: [
