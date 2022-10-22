@@ -5,7 +5,7 @@
 
     /**
      * @type {{ id: string, time?: string[], context: string, actions?: string[],
-        limits: string[], input?: string}}
+        limits?: string[], input?: string}}
      */
     export let item;
 
@@ -47,10 +47,29 @@
 {#if $data}
     <div class="card bg-base-100 shadow-xl border border-primary">
         <div class="card-body">
-            <h2 class="card-title">
+            <h2 class="card-title flex">
                 {item.context}
                 {#if item.time}
                     ({item.time[0]} - {item.time[1]})
+                {/if}
+                {#if item.limits}
+                    <span class="ml-auto">
+                        {#each item.limits as limit}
+                            {#if limit == "Work"}
+                                <span title="Dilarang Kerja">
+                                    ⛔
+                                </span>
+                            {:else if limit == "Meeting"}
+                                <span title="Dilarang Meeting">
+                                    🙅
+                                </span>
+                            {:else if limit == "Sosmed"}
+                                <span title="Dilarang Buka Sosmed">
+                                    🔕
+                                </span>
+                            {/if}
+                        {/each}
+                    </span>
                 {/if}
             </h2>
             {#if item.time}
@@ -98,7 +117,7 @@
                         class="textarea textarea-bordered min-w-0"
                         placeholder={item.input}
                         bind:value={$data.input}
-                        on:input={save}
+                        on:change={save}
                         readonly={disabled}
                     />
                 </div>

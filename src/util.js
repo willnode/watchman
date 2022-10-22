@@ -27,3 +27,11 @@ export function getTimeString(date) {
         hour12: false,
     });
 }
+
+export function getYearProgress(date) {
+    const start = (Number)(new Date(date.getFullYear(), 0, 0));
+    const diff = date - start;
+    const oneDay = 1000 * 60 * 60 * 24;
+    const day = diff / oneDay;
+    return (day / 365);
+}

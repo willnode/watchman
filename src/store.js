@@ -36,7 +36,7 @@ var WatchmanList = [
         ],
         limits: [
             'Meeting',
-            'WhatsApp',
+            'Work',
             'Sosmed'
         ]
     }, {
@@ -46,17 +46,16 @@ var WatchmanList = [
         input: 'What\'s unfinished stuff can be done quickly?',
         limits: [
             'Meeting',
-            'WhatsApp',
             'Sosmed'
         ]
     }, {
         id: "morning",
-        time: ['07:00', '08:00'],
+        time: ['06:00', '08:00'],
         context: "Planning",
         input: 'What I\'ll do?',
         actions: [
-            'Mandi',
             'Jogging',
+            'Mandi',
             'Dhuha',
             'Sarapan',
             'Bikin Kopi'
@@ -70,7 +69,6 @@ var WatchmanList = [
         context: "Working Round 1",
         input: "What I have done?",
         limits: [
-            'WhatsApp',
             'Sosmed',
         ]
     }, {
@@ -83,6 +81,7 @@ var WatchmanList = [
             'Tidur',
         ],
         limits: [
+            'Work',
         ]
     }, {
         id: "work-2",
@@ -91,7 +90,6 @@ var WatchmanList = [
         input: "What I have done?",
         limits: [
             'Sosmed',
-            'WhatsApp',
         ]
     }, {
         id: "evening",
@@ -101,9 +99,10 @@ var WatchmanList = [
             'Ashar',
             'Mandi',
             'Bersih-bersih',
-            'Cek Sosmed',
+            'Post Sosmed',
         ],
         limits: [
+            'Work'
         ]
     }, {
         id: "dawn",
@@ -116,14 +115,16 @@ var WatchmanList = [
             'Isyak',
         ],
         limits: [
+            'Meeting',
+            'Work',
+            'Sosmed'
         ]
     }, {
         id: "work-3",
-        time: ['19:00', '22:30'],
+        time: ['19:00', '22:00'],
         context: "Working Round 3",
         input: "What I have done?",
         limits: [
-            'Sosmed',
         ]
     }, {
         id: "evaluation",
@@ -135,7 +136,9 @@ var WatchmanList = [
         ],
         input: "Plan for tomorrow?",
         limits: [
-            'Sosmed',
+            'Meeting',
+            'Work',
+            'Sosmed'
         ]
     },
 ]
