@@ -18,11 +18,11 @@ const defaultUser = "rtI34B6L0Gdgs31EElbAsCvBJ582";
 var WatchmanList = [
     {
         id: "breafing",
-        context: "Today's Condition",
+        context: "What's Today?",
         actions: [
             'On Journey',
             'On Fasting',
-            'Target Archieved?',
+            'Target Archieved',
         ],
     },
     {
