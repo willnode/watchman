@@ -20,25 +20,30 @@ var WatchmanList = [
         id: "breafing",
         context: "What's on Today?",
         actions: [
-            'On Journey',
-            'On Fasting',
-            'Day Target Happily Archieved',
+            'Lagi jalan jalan',
+            'Lagi puasa',
+            'Lagi sakit',
         ],
     },
     {
         id: "get-up",
-        time: ['04:00', '07:00'],
+        time: ['03:30', '04:00'],
         context: "Get Up",
         actions: [
             'Bangun',
             'Tahajud',
             'Subuh',
-            'Jogging',
-            'Mandi',
-            'Dhuha',
-            'Breakfast',
-            'Bikin Kopi'
         ],
+        limits: [
+            'Meeting',
+            'WhatsApp',
+            'Sosmed'
+        ]
+    }, {
+        id: "boot-work",
+        time: ['04:00', '06:00'],
+        context: "Morning Work",
+        input: 'What\'s unfinished stuff can be done quickly?',
         limits: [
             'Meeting',
             'WhatsApp',
@@ -47,8 +52,15 @@ var WatchmanList = [
     }, {
         id: "morning",
         time: ['07:00', '08:00'],
-        context: "Cold Shower",
+        context: "Planning",
         input: 'What I\'ll do?',
+        actions: [
+            'Mandi',
+            'Jogging',
+            'Dhuha',
+            'Sarapan',
+            'Bikin Kopi'
+        ],
         limits: [
             'Meeting',
         ]
@@ -67,14 +79,14 @@ var WatchmanList = [
         context: "Noon Break",
         actions: [
             'Dhuhur',
-            'Lunch',
+            'Makan',
             'Tidur',
         ],
         limits: [
         ]
     }, {
         id: "work-2",
-        time: ['13:30', '16:00'],
+        time: ['13:30', '16:30'],
         context: "Working Round 2",
         input: "What I have done?",
         limits: [
@@ -83,18 +95,19 @@ var WatchmanList = [
         ]
     }, {
         id: "evening",
-        time: ['16:00', '18:00'],
+        time: ['16:30', '17:30'],
         context: "Evening Break",
         actions: [
             'Ashar',
             'Mandi',
             'Bersih-bersih',
+            'Cek Sosmed',
         ],
         limits: [
         ]
     }, {
         id: "dawn",
-        time: ['18:00', '19:00'],
+        time: ['17:30', '19:00'],
         context: "Dawn Break",
         actions: [
             'Magrib',
@@ -103,15 +116,24 @@ var WatchmanList = [
             'Isyak',
         ],
         limits: [
-            'Meeting',
-            'Sosmed',
-            'Whatsapp',
         ]
     }, {
         id: "work-3",
         time: ['19:00', '22:30'],
         context: "Working Round 3",
         input: "What I have done?",
+        limits: [
+            'Sosmed',
+        ]
+    }, {
+        id: "evaluation",
+        context: "Evaluasi",
+        actions: [
+            'Target Tercapai?',
+            'Perlu Lebih Giat?',
+            'Screen Off',
+        ],
+        input: "Plan for tomorrow?",
         limits: [
             'Sosmed',
         ]
