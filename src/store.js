@@ -99,7 +99,6 @@ var WatchmanList = [
             'Ashar',
             'Mandi',
             'Bersih-bersih',
-            'Post Sosmed',
         ],
         limits: [
             'Work'
@@ -111,7 +110,7 @@ var WatchmanList = [
         actions: [
             'Magrib',
             'Tadarus',
-            'Dinner',
+            'Makan',
             'Isyak',
         ],
         limits: [
