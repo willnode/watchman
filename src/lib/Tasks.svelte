@@ -36,7 +36,7 @@
     const editItem = (id, ctg) => {
         var task = $data[ctg].find((t) => t.id === id);
         var newP = prompt("Task title", task.title);
-        if (newP != '-') {
+        if (newP != '-' && newP != task.title && newP) {
             data.update((d) => {
                 d[ctg].find((t) => t.id === id).title = newP;
                 d.ver++;
