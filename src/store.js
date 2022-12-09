@@ -21,16 +21,16 @@ var RoutineHabit = [
         context: "Sleep",
         detail: "Relax. Take a rest and sleep.",
         times: [ // 8
-            ['02:30', '04:30'], // 2
+            ['03:30', '04:30'], // 1
             ['11:00', '12:00'], // 1
-            ['21:00', '02:00'], // 5
+            ['21:00', '03:00'], // 6
         ]
     }, {
         id: "rest",
         context: "Rest",
         detail: "Eat. Shower. Relax. Set your mood.",
         times: [ // 5.5
-            ['02:00', '02:30'], // 0.5
+            ['03:00', '03:30'], // 0.5
             ['04:30', '06:00'], // 1.5
             ['08:30', '09:00'], // 0.5
             ['12:00', '12:30'], // 0.5
@@ -77,36 +77,36 @@ var ParsedRoutineHabit = RoutineHabit.map((item) => {
 });
 
 
-// function listenWatchmanItem(name, date) {
-//     var ref2 = ref(database, `${defaultUser}/${date}/${name}`);
-//     var store = writable(null);
-//     var lastVer = 0;
-//     var unsub = onValue(ref2, (snapshot) => {
-//         const data = snapshot.val();
-//         store.set(Object.assign({
-//             ver: 0,
-//             input: '',
-//             actions: {},
-//         }, data || {}));
-//     });
-//     var unsubb = store.subscribe((value) => {
-//         if (value && value.ver > lastVer) {
-//             lastVer = value.ver;
-//             set(ref2, value);
-//         }
-//     });
-//     return {
-//         store,
-//         unsub: function () {
-//             unsub();
-//             unsubb();
-//         }
-//     };
-// }
+function listenStore(path, defaultObj = {}) {
+    var ref2 = ref(database, `${user.uid}/${path}`);
+    var store = writable(null);
+    var lastVer = 0;
+    var unsub = onValue(ref2, (snapshot) => {
+        const data = snapshot.val();
+        store.set(Object.assign({
+            ...defaultObj,
+            ver: 0,
+        }, data || {}));
+    });
+    var unsubb = store.subscribe((value) => {
+        if (value && value.ver > lastVer) {
+            lastVer = value.ver;
+            set(ref2, value);
+        }
+    });
+    return {
+        store,
+        unsub: function () {
+            unsub();
+            unsubb();
+        }
+    };
+}
 
 export {
     RoutineHabit,
     ParsedRoutineHabit,
+    listenStore,
     database,
     auth,
     user,

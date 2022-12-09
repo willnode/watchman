@@ -21,11 +21,15 @@
             return;
         }
 
-        currentRoutine = ParsedRoutineHabit.find(
-            (routine) =>
-                currentTime >= routine.startParsed &&
-                currentTime < routine.endParsed
-        );
+        currentRoutine =
+            ParsedRoutineHabit.find(
+                (routine) =>
+                    currentTime >= routine.startParsed &&
+                    currentTime < routine.endParsed
+            ) ||
+            ((x) => {
+                return { ...x, endParsed: x.endParsed + 86400000 };
+            })(ParsedRoutineHabit[ParsedRoutineHabit.length - 1]);
     };
 
     onDestroy(() => {
@@ -35,7 +39,7 @@
 
 {#if currentRoutine}
     <div>
-        <p class="text-slate-600"> Now is the time to...</p>
+        <p class="text-slate-600">Now is the time to...</p>
         <h3 class="text-5xl my-3">{routineMap[currentRoutine.id].context}</h3>
         <h4 class="text-xl my-3">{routineMap[currentRoutine.id].detail}</h4>
         <p class=" my-3">{currentRoutine.start} - {currentRoutine.end}</p>
